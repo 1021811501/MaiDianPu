@@ -1,0 +1,54 @@
+//
+//  MaiDianPu.pch
+//  MaiDianPu
+//
+//  Created by JasonLee on 2017/10/25.
+//  Copyright © 2017年 JasonLee. All rights reserved.
+//
+
+#ifndef MaiDianPu_pch
+#define MaiDianPu_pch
+
+#import "UITableView+FDKeyedHeightCache.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+#import "UITableView+FDIndexPathHeightCache.h"
+#import "AFNetworking.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "Masonry.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "NJKWebViewProgress.h"
+#import "QiniuSDK.h"
+#import "SDCycleScrollView.h"
+//SDWebImage
+#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
+#import "IQKeyboardManager.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import "MBProgressHUD.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialSinaHandler.h"
+#import "UMMobClick/MobClick.h"
+
+
+#import "DGBaseViewController.h"
+#import "DGBaseNavigationController.h"
+#import "DGBaseTableViewCell.h"
+
+#import "NSString+MD5.h"
+#import "DGConfig.h"
+#import "PopupView.h"
+#import "FontAndColorMacros.h"
+#import "SystemInfoAndToolsMacros.h"
+//提示框
+#define ALERTSTRING(errorMessage) UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:errorMessage delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];[alert show];
+
+
+//提示框
+#define POPALERTSTRING(errorMessage) PopupView *pop = [[PopupView alloc] initWithTitle:errorMessage]; [pop show];
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* MaiDianPu_pch */
