@@ -37,6 +37,7 @@
 		A1C2647E1FA0918F00D08472 /* DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C2647D1FA0918F00D08472 /* DViewController.m */; };
 		A1C264841FA09AEA00D08472 /* DGTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C264811FA09AEA00D08472 /* DGTabbar.m */; };
 		A1C264851FA09AEA00D08472 /* DGTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C264831FA09AEA00D08472 /* DGTabbarController.m */; };
+		A1CFD4101FA17E8A00DD6A6E /* DGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD40F1FA17E8A00DD6A6E /* DGTextView.m */; };
 		A1DF62061FA034A800A50B07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62051FA034A800A50B07 /* AppDelegate.m */; };
 		A1DF62171FA036BB00A50B07 /* DGApiRequest+BuildFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF620C1FA036BA00A50B07 /* DGApiRequest+BuildFactory.m */; };
 		A1DF62191FA036BB00A50B07 /* DGApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62101FA036BA00A50B07 /* DGApiRequest.m */; };
@@ -186,6 +187,8 @@
 		A1C264811FA09AEA00D08472 /* DGTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTabbar.m; sourceTree = "<group>"; };
 		A1C264821FA09AEA00D08472 /* DGTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTabbarController.h; sourceTree = "<group>"; };
 		A1C264831FA09AEA00D08472 /* DGTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTabbarController.m; sourceTree = "<group>"; };
+		A1CFD40E1FA17E8A00DD6A6E /* DGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTextView.h; sourceTree = "<group>"; };
+		A1CFD40F1FA17E8A00DD6A6E /* DGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTextView.m; sourceTree = "<group>"; };
 		A1DF62001FA02F6400A50B07 /* MaiDianPu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MaiDianPu.entitlements; sourceTree = "<group>"; };
 		A1DF62021FA0300100A50B07 /* MaiDianPu.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaiDianPu.pch; sourceTree = "<group>"; };
 		A1DF62041FA034A800A50B07 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -529,6 +532,8 @@
 				A1AEF1551FA04A920046DE3A /* DGBaseViewController.m */,
 				A1AEF1511FA04A920046DE3A /* UINavigationController+JYNavigationController.h */,
 				A1AEF1541FA04A920046DE3A /* UINavigationController+JYNavigationController.m */,
+				A1CFD40E1FA17E8A00DD6A6E /* DGTextView.h */,
+				A1CFD40F1FA17E8A00DD6A6E /* DGTextView.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1276,6 +1281,7 @@
 				A1DF62EF1FA0376F00A50B07 /* SDiPhoneVersion.m in Sources */,
 				A1DF631E1FA0376F00A50B07 /* MLPhotoPickerImageView.m in Sources */,
 				A1DF62EA1FA0376F00A50B07 /* UITextField+GSUtility.m in Sources */,
+				A1CFD4101FA17E8A00DD6A6E /* DGTextView.m in Sources */,
 				A1DF630A1FA0376F00A50B07 /* LZSSegementView.m in Sources */,
 				A1DF62061FA034A800A50B07 /* AppDelegate.m in Sources */,
 				A1DF62E51FA0376F00A50B07 /* UIButton+GSUtility.m in Sources */,
