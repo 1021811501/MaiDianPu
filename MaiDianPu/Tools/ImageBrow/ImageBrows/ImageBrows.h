@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DownActionSheetCell.h"
+#import <Photos/Photos.h>
 @interface ImageBrows : UIView<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 -(id)initWithImageTapWithUrlArray:(NSArray *)urlArray andIndex:(NSInteger)index;
 - (void)showInView:(UIViewController *)Sview;

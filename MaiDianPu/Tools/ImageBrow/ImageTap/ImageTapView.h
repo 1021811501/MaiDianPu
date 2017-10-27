@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DownActionSheetCell.h"
+
 @interface ImageTapView : UIView<UIGestureRecognizerDelegate,UITableViewDataSource,UITableViewDelegate>
--(id)initWithImageTapWithUrl:(NSString *)url;
+-(id)initWithImageTapWithUrl:(id )url;
 - (void)showInView:(UIViewController *)Sview;
 @end

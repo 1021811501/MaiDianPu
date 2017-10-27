@@ -7,6 +7,8 @@
 //
 
 #import "ImageBrows.h"
+#import "DownActionSheetCell.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation ImageBrows
 {
@@ -46,23 +48,27 @@
         imageView.center = CGPointMake(kScreenWidth/2.f+kScreenWidth*i, self.center.y);
         imageView.bounds = CGRectMake(0, 0, 100, 100);
         [_scrollView addSubview:imageView];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:urlArray[i]] placeholderImage:[UIImage imageNamed:@"pic_default@2x.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [UIView animateWithDuration:0.25 animations:^{
-                    NSLog(@"%f,,%f",image.size.width,image.size.height);
-                    
-                    if (image.size.width > kScreenWidth) {
-                        imageView.bounds = CGRectMake(0, 0, kScreenWidth, image.size.height/image.size.width * kScreenWidth);
-                    }
-                    else if (image.size.height > kScreenHeight) {
-                        imageView.bounds = CGRectMake(0, 0, image.size.width/image.size.height*kScreenHeight, kScreenHeight);
-                    }
-                    else{
-                        imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-                    }
-                }];
-            });
-        }];
+        id imageStr = urlArray[i];
+        if ([imageStr isKindOfClass:[UIImage class]]) {
+            UIImage *image = (UIImage *)imageStr;
+            imageView.image = image;
+            kWeakSelf
+            [UIView animateWithDuration:0.25 animations:^{
+                NSLog(@"%f,,%f",image.size.width,image.size.height);
+                [weakself changeImageViewFrameWithImageView:imageView andImage:image];
+            }];
+        }else if ([urlArray[i] isKindOfClass:[NSString class]]) {
+            kWeakSelf
+            [imageView sd_setImageWithURL:[NSURL URLWithString:urlArray[i]] placeholderImage:[UIImage imageNamed:@"TaskPlaceHoderImage.jpg"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIView animateWithDuration:0.25 animations:^{
+                        NSLog(@"%f,,%f",image.size.width,image.size.height);
+                        [weakself changeImageViewFrameWithImageView:imageView andImage:image];
+                    }];
+                });
+            }];
+
+        }
     }
     _page = [[UIPageControl alloc] init];
     _page.center = CGPointMake(self.center.x, kScreenHeight - 70);
@@ -70,6 +76,19 @@
     _page.currentPage = index;
     _page.currentPageIndicatorTintColor = [UIColor orangeColor];
     [self addSubview:_page];
+}
+-(void)changeImageViewFrameWithImageView:(UIImageView *)imageView andImage:(UIImage *)image{
+    
+    if (image.size.width > kScreenWidth) {
+        imageView.bounds = CGRectMake(0, 0, kScreenWidth, image.size.height/image.size.width * kScreenWidth);
+    }
+    else if (image.size.height > kScreenHeight) {
+        imageView.bounds = CGRectMake(0, 0, image.size.width/image.size.height*kScreenHeight, kScreenHeight);
+    }
+    else{
+        imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    }
+
 }
 - (void)showInView:(UIViewController *)Sview{
         [[UIApplication sharedApplication].delegate.window.rootViewController.view addSubview:self];
@@ -118,9 +137,7 @@
         [_table setLayoutMargins:UIEdgeInsetsZero];
     }
     [[UIApplication sharedApplication].delegate.window.rootViewController.view addSubview:_table];
-    
     //    [self addSubview:table]用这句话导致轻点手势和表didselectrow方法冲突didselectrow方法会不执行
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -142,15 +159,21 @@
     }
     cell.infoLabel.text = _dataArray[indexPath.row];
     return cell;
-    return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if(indexPath.row == 0){
-        UIImageView *imageView = [_scrollView viewWithTag:_page.currentPage+1];
-        [self saveImageToPhotos:imageView.image];
+        
+        ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+        if (status == ALAuthorizationStatusRestricted || status == ALAuthorizationStatusDenied) {
+            ALERTSTRING(@"请到设置-隐私-图片 中打开权限")
+        }else{
+            UIImageView *imageView = [_scrollView viewWithTag:_page.currentPage+1];
+            [self saveImageToPhotos:imageView.image];
+        }
     }
     [self tappedCancel];
 }
@@ -179,11 +202,18 @@
     }];
 }
 -(void)saveImageToPhotos:(UIImage *)saveImage{
-    UIImageWriteToSavedPhotosAlbum(saveImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        BOOL hasAuthorized = (status == PHAuthorizationStatusAuthorized);
+        if (hasAuthorized) {
+            UIImageWriteToSavedPhotosAlbum(saveImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }else{
+            ALERTSTRING(@"请到设置-隐私-图片 中打开权限")
+        }
+    }];
+    
 }
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
 {
-    NSLog(@"%s",__FUNCTION__);
     NSString *msg = nil ;
     if(error != NULL){
         msg = @"保存图片失败" ;
