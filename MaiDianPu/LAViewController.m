@@ -1,18 +1,18 @@
 //
-//  DViewController.m
+//  LAViewController.m
 //  MaiDianPu
 //
-//  Created by JasonLee on 2017/10/25.
+//  Created by JasonLee on 2017/10/26.
 //  Copyright © 2017年 JasonLee. All rights reserved.
 //
 
-#import "DViewController.h"
+#import "LAViewController.h"
 
-@interface DViewController ()
+@interface LAViewController ()
 
 @end
 
-@implementation DViewController
+@implementation LAViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -158,7 +158,7 @@
         if (!_btn) {
             _btn = [UIButton buttonWithType:UIButtonTypeCustom] ;
             _btn.frame = CGRectMake(0, 0, 40, 30);
-            [_btn setImage:[UIImage imageNamed:@"back@2x.png"] forState:UIControlStateNormal];
+            [_btn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
             [_btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
             UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:_btn];
             self.navigationItem.leftBarButtonItem = leftItem;

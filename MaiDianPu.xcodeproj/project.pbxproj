@@ -38,6 +38,7 @@
 		A1C264841FA09AEA00D08472 /* DGTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C264811FA09AEA00D08472 /* DGTabbar.m */; };
 		A1C264851FA09AEA00D08472 /* DGTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C264831FA09AEA00D08472 /* DGTabbarController.m */; };
 		A1CFD4101FA17E8A00DD6A6E /* DGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD40F1FA17E8A00DD6A6E /* DGTextView.m */; };
+		A1CFD4131FA17FC100DD6A6E /* LAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CFD4121FA17FC100DD6A6E /* LAViewController.m */; };
 		A1DF62061FA034A800A50B07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62051FA034A800A50B07 /* AppDelegate.m */; };
 		A1DF62171FA036BB00A50B07 /* DGApiRequest+BuildFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF620C1FA036BA00A50B07 /* DGApiRequest+BuildFactory.m */; };
 		A1DF62191FA036BB00A50B07 /* DGApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62101FA036BA00A50B07 /* DGApiRequest.m */; };
@@ -63,9 +64,6 @@
 		A1DF62F81FA0376F00A50B07 /* UIImage+Mask.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62581FA0376C00A50B07 /* UIImage+Mask.m */; };
 		A1DF62F91FA0376F00A50B07 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF625A1FA0376C00A50B07 /* UIView+Layout.m */; };
 		A1DF62FC1FA0376F00A50B07 /* DGClassUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62631FA0376C00A50B07 /* DGClassUtility.m */; };
-		A1DF62FD1FA0376F00A50B07 /* DownSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62661FA0376C00A50B07 /* DownSheet.m */; };
-		A1DF62FE1FA0376F00A50B07 /* DownSheetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62681FA0376C00A50B07 /* DownSheetCell.m */; };
-		A1DF62FF1FA0376F00A50B07 /* DownSheetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF626A1FA0376C00A50B07 /* DownSheetModel.m */; };
 		A1DF63001FA0376F00A50B07 /* SelectedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF626D1FA0376C00A50B07 /* SelectedButton.m */; };
 		A1DF63021FA0376F00A50B07 /* GetMyIp.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62731FA0376C00A50B07 /* GetMyIp.m */; };
 		A1DF63031FA0376F00A50B07 /* DGNetWorkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF62761FA0376C00A50B07 /* DGNetWorkReachabilityManager.m */; };
@@ -189,6 +187,8 @@
 		A1C264831FA09AEA00D08472 /* DGTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTabbarController.m; sourceTree = "<group>"; };
 		A1CFD40E1FA17E8A00DD6A6E /* DGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTextView.h; sourceTree = "<group>"; };
 		A1CFD40F1FA17E8A00DD6A6E /* DGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTextView.m; sourceTree = "<group>"; };
+		A1CFD4111FA17FC100DD6A6E /* LAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAViewController.h; sourceTree = "<group>"; };
+		A1CFD4121FA17FC100DD6A6E /* LAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAViewController.m; sourceTree = "<group>"; };
 		A1DF62001FA02F6400A50B07 /* MaiDianPu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MaiDianPu.entitlements; sourceTree = "<group>"; };
 		A1DF62021FA0300100A50B07 /* MaiDianPu.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaiDianPu.pch; sourceTree = "<group>"; };
 		A1DF62041FA034A800A50B07 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -241,12 +241,6 @@
 		A1DF625A1FA0376C00A50B07 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		A1DF62621FA0376C00A50B07 /* DGClassUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGClassUtility.h; sourceTree = "<group>"; };
 		A1DF62631FA0376C00A50B07 /* DGClassUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGClassUtility.m; sourceTree = "<group>"; };
-		A1DF62651FA0376C00A50B07 /* DownSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownSheet.h; sourceTree = "<group>"; };
-		A1DF62661FA0376C00A50B07 /* DownSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownSheet.m; sourceTree = "<group>"; };
-		A1DF62671FA0376C00A50B07 /* DownSheetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownSheetCell.h; sourceTree = "<group>"; };
-		A1DF62681FA0376C00A50B07 /* DownSheetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownSheetCell.m; sourceTree = "<group>"; };
-		A1DF62691FA0376C00A50B07 /* DownSheetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownSheetModel.h; sourceTree = "<group>"; };
-		A1DF626A1FA0376C00A50B07 /* DownSheetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownSheetModel.m; sourceTree = "<group>"; };
 		A1DF626C1FA0376C00A50B07 /* SelectedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedButton.h; sourceTree = "<group>"; };
 		A1DF626D1FA0376C00A50B07 /* SelectedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedButton.m; sourceTree = "<group>"; };
 		A1DF62721FA0376C00A50B07 /* GetMyIp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMyIp.h; sourceTree = "<group>"; };
@@ -442,6 +436,8 @@
 				A12C006A1FA02B5200021E25 /* ViewController.m */,
 				A1C264761FA0906600D08472 /* HomeViewController.h */,
 				A1C264771FA0906600D08472 /* HomeViewController.m */,
+				A1CFD4111FA17FC100DD6A6E /* LAViewController.h */,
+				A1CFD4121FA17FC100DD6A6E /* LAViewController.m */,
 				A119A40A1FA0622500CBADF7 /* BViewController.h */,
 				A119A40B1FA0622500CBADF7 /* BViewController.m */,
 				A1C264791FA0907600D08472 /* CViewController.h */,
@@ -548,12 +544,10 @@
 				A1DF62611FA0376C00A50B07 /* DGClassUtility */,
 				A1DF62891FA0376D00A50B07 /* DGExcaptionHandler */,
 				A1DF62741FA0376C00A50B07 /* DGNetWorkReachabilityManager */,
-				A1DF62641FA0376C00A50B07 /* DownActionSheet */,
 				A1DF62391FA0376B00A50B07 /* GetIPAddress */,
 				A1DF62711FA0376C00A50B07 /* GetMyIp */,
 				A1DF62541FA0376C00A50B07 /* guideVIew */,
 				A1DF628F1FA0376E00A50B07 /* ImageBrow */,
-				A1DF622F1FA0376B00A50B07 /* InviteSheet */,
 				A1DF62831FA0376D00A50B07 /* JSSliderSwitch */,
 				A1DF62DD1FA0376E00A50B07 /* LoginTools */,
 				A1DF62E01FA0376F00A50B07 /* LZSProgressView */,
@@ -565,7 +559,6 @@
 				A1DF623C1FA0376B00A50B07 /* SDiPhoneVersion */,
 				A1DF626B1FA0376C00A50B07 /* SelectedButton */,
 				A1DF62A01FA0376E00A50B07 /* ShareTools */,
-				A1DF62771FA0376C00A50B07 /* SSKeychain */,
 				A1DF62981FA0376E00A50B07 /* TagExplain */,
 				A1DF621D1FA0376B00A50B07 /* TBcreditTools */,
 				A1DF627A1FA0376D00A50B07 /* ThirdLogin */,
@@ -636,13 +629,6 @@
 				A119A4081FA05FB000CBADF7 /* UIDevice+DGUtility.m */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		A1DF622F1FA0376B00A50B07 /* InviteSheet */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = InviteSheet;
 			sourceTree = "<group>";
 		};
 		A1DF62391FA0376B00A50B07 /* GetIPAddress */ = {
@@ -730,19 +716,6 @@
 			path = DGClassUtility;
 			sourceTree = "<group>";
 		};
-		A1DF62641FA0376C00A50B07 /* DownActionSheet */ = {
-			isa = PBXGroup;
-			children = (
-				A1DF62651FA0376C00A50B07 /* DownSheet.h */,
-				A1DF62661FA0376C00A50B07 /* DownSheet.m */,
-				A1DF62671FA0376C00A50B07 /* DownSheetCell.h */,
-				A1DF62681FA0376C00A50B07 /* DownSheetCell.m */,
-				A1DF62691FA0376C00A50B07 /* DownSheetModel.h */,
-				A1DF626A1FA0376C00A50B07 /* DownSheetModel.m */,
-			);
-			path = DownActionSheet;
-			sourceTree = "<group>";
-		};
 		A1DF626B1FA0376C00A50B07 /* SelectedButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -768,29 +741,6 @@
 				A1DF62761FA0376C00A50B07 /* DGNetWorkReachabilityManager.m */,
 			);
 			path = DGNetWorkReachabilityManager;
-			sourceTree = "<group>";
-		};
-		A1DF62771FA0376C00A50B07 /* SSKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				A1DF62781FA0376C00A50B07 /* Sources */,
-				A1DF62791FA0376C00A50B07 /* Support */,
-			);
-			path = SSKeychain;
-			sourceTree = "<group>";
-		};
-		A1DF62781FA0376C00A50B07 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		A1DF62791FA0376C00A50B07 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Support;
 			sourceTree = "<group>";
 		};
 		A1DF627A1FA0376D00A50B07 /* ThirdLogin */ = {
@@ -1276,7 +1226,7 @@
 				A1DF62E61FA0376F00A50B07 /* UIColor+GSUtility.m in Sources */,
 				A119A40C1FA0622500CBADF7 /* BViewController.m in Sources */,
 				A1DF632A1FA0376F00A50B07 /* ProvinceModel.m in Sources */,
-				A1DF62FF1FA0376F00A50B07 /* DownSheetModel.m in Sources */,
+				A1CFD4131FA17FC100DD6A6E /* LAViewController.m in Sources */,
 				A1DF62191FA036BB00A50B07 /* DGApiRequest.m in Sources */,
 				A1DF62EF1FA0376F00A50B07 /* SDiPhoneVersion.m in Sources */,
 				A1DF631E1FA0376F00A50B07 /* MLPhotoPickerImageView.m in Sources */,
@@ -1333,14 +1283,12 @@
 				A1DF62FC1FA0376F00A50B07 /* DGClassUtility.m in Sources */,
 				A1DF630B1FA0376F00A50B07 /* DownActionSheetCell.m in Sources */,
 				A1DF631A1FA0376F00A50B07 /* MLSelectPhotoNavigationViewController.m in Sources */,
-				A1DF62FD1FA0376F00A50B07 /* DownSheet.m in Sources */,
 				A1DF63121FA0376F00A50B07 /* UShare.m in Sources */,
 				A1DF63271FA0376F00A50B07 /* CityModel.m in Sources */,
 				A1C264781FA0906600D08472 /* HomeViewController.m in Sources */,
 				A1C264841FA09AEA00D08472 /* DGTabbar.m in Sources */,
 				A1DF632B1FA0376F00A50B07 /* ULogin.m in Sources */,
 				A1DF62E81FA0376F00A50B07 /* UILabel+GSUtility.m in Sources */,
-				A1DF62FE1FA0376F00A50B07 /* DownSheetCell.m in Sources */,
 				A1DF63171FA0376F00A50B07 /* MLSelectPhotoPickerDatas.m in Sources */,
 				A1DF630F1FA0376F00A50B07 /* TagExplainCell.m in Sources */,
 				A1DF63151FA0376F00A50B07 /* MLSelectPhotoAssets.m in Sources */,
