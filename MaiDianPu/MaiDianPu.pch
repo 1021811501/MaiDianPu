@@ -30,7 +30,9 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaHandler.h"
 #import "UMMobClick/MobClick.h"
+#import "QMUIKit.h"
 
+#import "UIView+DGAdditions.h"
 
 #import "DGBaseViewController.h"
 #import "DGBaseNavigationController.h"

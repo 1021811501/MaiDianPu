@@ -8,7 +8,7 @@
 
 #import "DGBaseViewController.h"
 
-@interface DGBaseViewController ()
+@interface DGBaseViewController ()<DGDeviceBatteryObserveDelegate,DGNetWorkReachabilityDelegate>
 {
     UIButton *_btn;
     UIImageView *nodateImageView;
@@ -170,6 +170,72 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)showEmptyView{
+    if (!self.emptyView) {
+        self.emptyView = [[QMUIEmptyView alloc] initWithFrame:self.view.bounds];
+    }
+    [self.view addSubview:self.emptyView];
+}
+-(void)hidEmptyView{
+    [self.emptyView removeFromSuperview];
+}
+- (void)showEmptyViewWithLoading {
+    [self showEmptyView];
+    [self.emptyView setImage:nil];
+    [self.emptyView setLoadingViewHidden:NO];
+    [self.emptyView setTextLabelText:nil];
+    [self.emptyView setDetailTextLabelText:nil];
+    [self.emptyView setActionButtonTitle:nil];
+}
+
+- (void)showEmptyViewWithText:(NSString *)text
+                   detailText:(NSString *)detailText
+                  buttonTitle:(NSString *)buttonTitle
+                 buttonAction:(SEL)action {
+    [self showEmptyViewWithLoading:NO image:nil text:text detailText:detailText buttonTitle:buttonTitle buttonAction:action];
+}
+
+- (void)showEmptyViewWithImage:(UIImage *)image
+                          text:(NSString *)text
+                    detailText:(NSString *)detailText
+                   buttonTitle:(NSString *)buttonTitle
+                  buttonAction:(SEL)action {
+    [self showEmptyViewWithLoading:NO image:image text:text detailText:detailText buttonTitle:buttonTitle buttonAction:action];
+}
+
+- (void)showEmptyViewWithLoading:(BOOL)showLoading
+                           image:(UIImage *)image
+                            text:(NSString *)text
+                      detailText:(NSString *)detailText
+                     buttonTitle:(NSString *)buttonTitle
+                    buttonAction:(SEL)action {
+    [self showEmptyView];
+    [self.emptyView setLoadingViewHidden:!showLoading];
+    [self.emptyView setImage:image];
+    [self.emptyView setTextLabelText:text];
+    [self.emptyView setDetailTextLabelText:detailText];
+    [self.emptyView setActionButtonTitle:buttonTitle];
+    [self.emptyView.actionButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [self.emptyView.actionButton addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)deviceBattertyStateChanged:(UIDeviceBatteryState )batteryState{
+    NSLog(@"电池状态改变");
+}
+-(void)deviceBattertyLevelChanged:(CGFloat)batteryLevel{
+    NSLog(@"电池电量改变");
+}
+-(void)deviceBattertyPowerModeChanged:( DeveiceBatteryPowerMode)batteryPowMode{
+    NSLog(@"不是低电量和低电量状态改变");
+}
+-(void)netWorkStateDidChanged:(AFNetworkReachabilityStatus)status{
+    /*
+    AFNetworkReachabilityStatusUnknown          = -1,
+    AFNetworkReachabilityStatusNotReachable     = 0,
+    AFNetworkReachabilityStatusReachableViaWWAN = 1,
+    AFNetworkReachabilityStatusReachableViaWiFi = 2,
+     */
+    NSLog(@"网络状态改变");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

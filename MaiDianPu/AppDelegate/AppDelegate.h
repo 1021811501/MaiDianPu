@@ -10,7 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "UMessage.h"
 #import "UMSocialCore.h"
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "QMUIConfigurationTemplate.h"
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
+#import <UserNotifications/UserNotifications.h>
+#endif
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

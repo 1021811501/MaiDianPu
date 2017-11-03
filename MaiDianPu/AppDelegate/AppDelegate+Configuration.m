@@ -24,7 +24,7 @@
     //友盟统计
     [MobClick setLogEnabled:YES];
     UMConfigInstance.appKey = UMengAppkey;
-    UMConfigInstance.channelId = @"Enterprise";  //企业
+    UMConfigInstance.channelId = @"AppStore";  //企业
     [MobClick startWithConfigure:UMConfigInstance];
     [MobClick setAppVersion:APPVersion];
     
@@ -32,26 +32,15 @@
 -(void)configurationUMSocialData{
     //设置友盟社会化组件appkey
     [[UMSocialManager defaultManager] setUmSocialAppkey:UMengAppkey];
-//    [UMSocialData setAppKey:UmengAppkey];
-    //打开调试log的开关
-//    [UMSocialData openLog:YES];
+#ifdef DEBUG
     [[UMSocialManager defaultManager] openLog:YES];
+#else
+    [[UMSocialManager defaultManager] openLog:YES];
+#endif
     
-     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:nil];
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1105821097"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3921700954"  appSecret:@"04b48b094faeb16683c32669824ebdad" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
-    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
-//    [UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
-    
-    //设置微信AppId，设置分享url，默认使用友盟的网址
-//    [UMSocialWechatHandler setWXAppId:WXAPPID appSecret:WXAPPSECRET url:kUrlShareStr];
-    //设置微博APPid
-//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:WBAPPID
-//                                              secret:WBAPPSECRET
-////                                         RedirectURL:kUrlShareStr];
-    
-    //设置分享到QQ/Qzone的应用Id，和分享url 链接
-//    [UMSocialQQHandler setQQWithAppId:QQAPPID appKey:QQAPPKEY url:kUrlShareStr];
+     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAPPID appSecret:WXAPPSECRET redirectURL:nil];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAPPID /*设置QQ平台的appID*/  appSecret:QQAPPKEY redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:WBAPPID  appSecret:WBAPPSECRET redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 //    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
 }
 -(void)configurationUmMessageWithLaunchOptions:(NSDictionary *)launchOptions{
@@ -106,5 +95,8 @@
     }
     [UMessage setLogEnabled:YES];
     [UMessage setAutoAlert:NO];
+}
+-(void)configurationQMUI{
+    [QMUIConfigurationTemplate setupConfigurationTemplate];
 }
 @end

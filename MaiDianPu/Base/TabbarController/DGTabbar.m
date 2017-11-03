@@ -57,7 +57,7 @@
 // 如果中间加plusebutton则将此处解注释
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.plusBtn.center = CGPointMake(self.frame.size.width*0.5, self.frame.size.height*0.5 - 2*DGMagin);
+//    self.plusBtn.center = CGPointMake(self.frame.size.width*0.5,  -2*DGMagin);
     //pluse图片尺寸128/2.0*114/2.0
     self.plusBtn.bounds = CGRectMake(0, 0, self.plusBtn.currentBackgroundImage.size.width, self.plusBtn.currentBackgroundImage.size.height);
     NSLog(@"-------------%.2f,%.2f,%.2f,%.2f",self.plusBtn.frame.origin.x,self.frame.origin.y,self.plusBtn.frame.size.width,self.plusBtn.frame.size.height);
@@ -73,6 +73,10 @@
             rect.size.width = self.frame.size.width / 5.0;
             rect.origin.x = rect.size.width * btnIndex;
             btn.frame = rect;
+            if (btnIndex == 0) {
+                self.plusBtn.center = CGPointMake(self.frame.size.width*0.5, btn.center.y - 2*DGMagin);
+            }
+            
             btnIndex++;
             //如果是索引是2(从0开始的)，直接让索引++，目的就是让消息按钮的位置向右移动，空出来发布按钮的位置
             if (btnIndex == 2) {

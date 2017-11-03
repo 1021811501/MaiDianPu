@@ -8,9 +8,7 @@
 
 #import "AppDelegate.h"
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
-#import <UserNotifications/UserNotifications.h>
-#endif
+
 #import "AppDelegate+Configuration.h"
 @interface AppDelegate ()
 
@@ -25,10 +23,54 @@
     [self configureKeyboardManager];
     [self configurationUmMessageWithLaunchOptions:launchOptions];
     [self configurationUMSocialData];
+    [self configurationQMUI];
     return YES;
 }
-
-
+//目前支持所有ios系统
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [[UMSocialManager defaultManager] handleOpenURL:url];
+}
+//仅支持ios9以上,ios8一下系统不会调用;
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    return [[UMSocialManager defaultManager] handleOpenURL:url];
+}
+//支持所有ios系统
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [[UMSocialManager defaultManager] handleOpenURL:url];
+}
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+//     [UMessage didReceiveRemoteNotification:userInfo];
+}
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    [UMessage didReceiveRemoteNotification:userInfo];
+}
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //应用处于前台时的远程推送接受
+        //关闭U-Push自带的弹出框
+        [UMessage setAutoAlert:NO];
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+        
+    }else{
+        //应用处于前台时的本地推送接受
+    }
+    //当应用处于前台时提示设置，需要哪个可以设置哪一个
+    completionHandler(UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionAlert);
+}
+//iOS10新增：处理后台点击通知的代理方法
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler{
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //应用处于后台时的远程推送接受
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+        
+    }else{
+        //应用处于后台时的本地推送接受
+    }
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

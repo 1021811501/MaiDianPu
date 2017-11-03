@@ -5,7 +5,7 @@ target 'MaiDianPu' do
 pod 'AFNetworking'
 pod 'MJRefresh'
 pod 'UITableView+FDTemplateLayoutCell'
-pod 'Masonry'
+pod 'Masonry', :git => 'https://github.com/SnapKit/Masonry.git'
 pod 'SDWebImage'
 pod 'MJExtension'
 pod 'MBProgressHUD'
@@ -20,5 +20,6 @@ pod 'FDFullscreenPopGesture', '1.1'
 pod 'SDCycleScrollView','~> 1.64'
 pod 'NJKWebViewProgress','~> 0.2.3'
 pod 'MagicalRecord', '~> 2.3.2'
+pod 'QMUIKit'
 end
 
