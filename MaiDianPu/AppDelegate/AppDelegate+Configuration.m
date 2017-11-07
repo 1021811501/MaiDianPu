@@ -21,79 +21,37 @@
     //    manager.enableDebugging = YES;
 }
 -(void)configurationMobClick{
-    //友盟统计
-    [MobClick setLogEnabled:YES];
-    UMConfigInstance.appKey = UMengAppkey;
-    UMConfigInstance.channelId = @"AppStore";  //企业
-    [MobClick startWithConfigure:UMConfigInstance];
-    [MobClick setAppVersion:APPVersion];
-    
+    [MobClick setScenarioType:E_UM_NORMAL];
+    [UMErrorCatch initErrorCatch];
+}
+-(void)configurationUMSDKWithLaunchOptions:(NSDictionary *)launchOptions{
+    [UMConfigure initWithAppkey:UMengAppkey channel:@"APPSTORE"];
+    [UMConfigure setLogEnabled:YES];
+    [self configurationMobClick];
+    [self configurationUMSocialData];
+    [self configurationUmMessageWithLaunchOptions:launchOptions];
 }
 -(void)configurationUMSocialData{
     //设置友盟社会化组件appkey
-    [[UMSocialManager defaultManager] setUmSocialAppkey:UMengAppkey];
-#ifdef DEBUG
-    [[UMSocialManager defaultManager] openLog:YES];
-#else
-    [[UMSocialManager defaultManager] openLog:YES];
-#endif
-    
-     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAPPID appSecret:WXAPPSECRET redirectURL:nil];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAPPID appSecret:WXAPPSECRET redirectURL:nil];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAPPID /*设置QQ平台的appID*/  appSecret:QQAPPKEY redirectURL:@"http://mobile.umeng.com/social"];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:WBAPPID  appSecret:WBAPPSECRET redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
-//    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]];
 }
 -(void)configurationUmMessageWithLaunchOptions:(NSDictionary *)launchOptions{
-    //1.2.7版本开始简化初始化过程。如不需要交互式的通知，下面用下面一句话初始化即可。
-    [UMessage startWithAppkey:UMengAppkey launchOptions:launchOptions];
-    //iOS10必须加下面这段代码。
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    center.delegate = self;
-    UNAuthorizationOptions types10=UNAuthorizationOptionBadge|  UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
-    [center requestAuthorizationWithOptions:types10     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+
+    // Push组件基本功能配置
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    UMessageRegisterEntity * entity = [[UMessageRegisterEntity alloc] init];
+    //type是对推送的几个参数的选择，可以选择一个或者多个。默认是三个全部打开，即：声音，弹窗，角标等
+    entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert|UMessageAuthorizationOptionSound;
+    [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
         if (granted) {
-            //点击允许
-            //这里可以添加一些自己的逻辑
-        } else {
-            //点击不允许
-            //这里可以添加一些自己的逻辑
+            // 用户选择了接收Push消息
+        }else{
+            // 用户拒绝接收Push消息
             POPALERTSTRING(@"请打开设置允许通知")
         }
     }];
-    //如果你期望使用交互式(只有iOS 8.0及以上有)的通知，请参考下面注释部分的初始化代码
-    UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
-    action1.identifier = @"action1_identifier";
-    action1.title=@"打开应用";
-    action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
-    
-    UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
-    action2.identifier = @"action2_identifier";
-    action2.title=@"忽略";
-    action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
-    action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
-    action2.destructive = YES;
-    UIMutableUserNotificationCategory *actionCategory1 = [[UIMutableUserNotificationCategory alloc] init];
-    actionCategory1.identifier = @"category1";//这组动作的唯一标示
-    [actionCategory1 setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
-    NSSet *categories = [NSSet setWithObjects:actionCategory1, nil];
-    
-    //如果要在iOS10显示交互式的通知，必须注意实现以下代码
-    if ([[[UIDevice currentDevice] systemVersion]intValue]>=10) {
-        UNNotificationAction *action1_ios10 = [UNNotificationAction actionWithIdentifier:@"action1_ios10_identifier" title:@"打开应用" options:UNNotificationActionOptionForeground];
-        UNNotificationAction *action2_ios10 = [UNNotificationAction actionWithIdentifier:@"action2_ios10_identifier" title:@"忽略" options:UNNotificationActionOptionForeground];
-        
-        //UNNotificationCategoryOptionNone
-        //UNNotificationCategoryOptionCustomDismissAction  清除通知被触发会走通知的代理方法
-        //UNNotificationCategoryOptionAllowInCarPlay       适用于行车模式
-        UNNotificationCategory *category1_ios10 = [UNNotificationCategory categoryWithIdentifier:@"category1" actions:@[action1_ios10,action2_ios10]   intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
-        NSSet *categories_ios10 = [NSSet setWithObjects:category1_ios10, nil];
-        [center setNotificationCategories:categories_ios10];
-        [UMessage registerForRemoteNotifications:categories];
-    }else
-    {
-        [UMessage registerForRemoteNotifications:categories];
-    }
-    [UMessage setLogEnabled:YES];
     [UMessage setAutoAlert:NO];
 }
 -(void)configurationQMUI{

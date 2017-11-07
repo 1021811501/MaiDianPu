@@ -14,4 +14,5 @@
 -(void)configurationUMSocialData;
 -(void)configurationUmMessageWithLaunchOptions:(NSDictionary *)launchOptions;
 -(void)configurationQMUI;
+-(void)configurationUMSDKWithLaunchOptions:(NSDictionary *)launchOptions;
 @end

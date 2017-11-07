@@ -24,12 +24,12 @@
 #import "UIButton+WebCache.h"
 #import "UIImageView+WebCache.h"
 #import "IQKeyboardManager.h"
-#import <UMSocialCore/UMSocialCore.h>
+//#import <UMSocialCore/UMSocialCore.h>
 #import "MBProgressHUD.h"
-#import "UMSocialQQHandler.h"
-#import "UMSocialWechatHandler.h"
-#import "UMSocialSinaHandler.h"
-#import "UMMobClick/MobClick.h"
+//#import "UMSocialQQHandler.h"
+//#import "UMSocialWechatHandler.h"
+//#import "UMSocialSinaHandler.h"
+//#import "UMMobClick/MobClick.h"
 #import "QMUIKit.h"
 
 #import "UIView+DGAdditions.h"

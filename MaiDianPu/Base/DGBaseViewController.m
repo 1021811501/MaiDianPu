@@ -7,7 +7,7 @@
 //
 
 #import "DGBaseViewController.h"
-
+#import <UMAnalytics/MobClick.h>
 @interface DGBaseViewController ()<DGDeviceBatteryObserveDelegate,DGNetWorkReachabilityDelegate>
 {
     UIButton *_btn;

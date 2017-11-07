@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UMShare/UMShare.h>
 @interface UShare : NSObject
 
 + (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType;

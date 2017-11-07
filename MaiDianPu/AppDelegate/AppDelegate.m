@@ -18,11 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    [self configurationMobClick];
+    
     [self configureKeyboardManager];
-    [self configurationUmMessageWithLaunchOptions:launchOptions];
-    [self configurationUMSocialData];
+    [self configurationUMSDKWithLaunchOptions:launchOptions];
     [self configurationQMUI];
     return YES;
 }
@@ -30,17 +28,7 @@
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [[UMSocialManager defaultManager] handleOpenURL:url];
 }
-//仅支持ios9以上,ios8一下系统不会调用;
--(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-    return [[UMSocialManager defaultManager] handleOpenURL:url];
-}
-//支持所有ios系统
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [[UMSocialManager defaultManager] handleOpenURL:url];
-}
--(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-//     [UMessage didReceiveRemoteNotification:userInfo];
-}
+
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     [UMessage didReceiveRemoteNotification:userInfo];
 }
@@ -71,6 +59,10 @@
         //应用处于后台时的本地推送接受
     }
 }
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"%@", [NSString stringWithFormat:@"Device Token: %@", deviceToken]);
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

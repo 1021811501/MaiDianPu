@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UMShare/UMShare.h>
 @interface ULogin : NSObject
 
 + (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType Sucess:(void(^)(id response))sucess andFail:(void(^)(id error))fail;

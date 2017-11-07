@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UMShare/UMShare.h>
 typedef NS_ENUM(NSInteger ) {
     ThirdPartLoginPlatformTypeWechat = 1,
     ThirdPartLoginPlatformTypeQQ,
