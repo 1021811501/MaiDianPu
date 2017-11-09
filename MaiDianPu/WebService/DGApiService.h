@@ -21,7 +21,7 @@
 
 @interface DGApiService : NSObject
 @property(nonatomic, assign)NSInteger tag;
-@property(nonatomic, weak)id <DGApiServiceDelegate>delegate;
+@property(nonatomic, weak)id <DGApiServiceDelegate> delegate;
 +(id)serviceWithDelegate:(id <DGApiServiceDelegate>)delegate;
 +(id)serviceWithTag:(NSInteger)tag delegate:(id <DGApiServiceDelegate>)delegate;
 - (void)sendJSONRequest:(DGApiRequest *)apiRequest;

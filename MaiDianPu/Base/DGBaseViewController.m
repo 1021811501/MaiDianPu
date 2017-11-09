@@ -25,8 +25,6 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.navigationBar.barTintColor = HexColor(@"fafafa", 1);
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:HexColor(@"333333", 1),NSFontAttributeName:[UIFont systemFontOfSize:18]}];
 }

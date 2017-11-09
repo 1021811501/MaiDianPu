@@ -30,20 +30,8 @@
 //        make.top.equalTo(self.view.dg_mas_safeAreaLayoutGuideTop).offset(80);
         make.top.equalTo(self.mas_topLayoutGuide);
         make.bottom.equalTo(self.view.dg_mas_safeAreaLayoutGuideBottom).offset(-180);
-//        if (@available(iOS 11.0 ,*)) {
-//            make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
-//            make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
-//            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(80);
-//            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-180);
-//        }else{
-//            make.left.equalTo(self.view.mas_left);
-//            make.right.equalTo(self.view.mas_right);
-//            make.top.equalTo(self.view.mas_top).offset(80+64);
-//            make.bottom.equalTo(self.view.mas_bottom).offset(-180);
-//        }
        
     }];
-    // Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

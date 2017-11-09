@@ -10,6 +10,7 @@
 
 
 #import "AppDelegate+Configuration.h"
+#import "UIViewController+DGUtility.h"
 @interface AppDelegate ()
 
 @end
@@ -60,7 +61,13 @@
     }
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSLog(@"%@", [NSString stringWithFormat:@"Device Token: %@", deviceToken]);
+    NSLog(@"------------%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                              stringByReplacingOccurrencesOfString: @">" withString: @""]
+                             stringByReplacingOccurrencesOfString: @" " withString: @""]);
+    NSString *token = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                        stringByReplacingOccurrencesOfString: @">" withString: @""]
+                       stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"%@",token);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

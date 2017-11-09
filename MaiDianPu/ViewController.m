@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "BViewController.h"
 #import "DGTabbarController.h"
+#import "DGApiRequest.h"
+#import "DGApiService.h"
+#import "UIViewController+DGUtility.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -30,5 +34,11 @@
 - (IBAction)action:(id)sender {
 //    [self.navigationController pushViewController:[BViewController new] animated:YES];
     self.view.window.rootViewController = [DGTabbarController new];
+//    DGApiRequest *request = [DGApiRequest requestForLoginInWithNick:@"13298330219" andPassWord:@"111111"];
+//    [[DGApiService serviceWithDelegate:self] sendJSONRequest:request];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
 }
 @end

@@ -10,7 +10,7 @@
 
 @interface DGApiRequest (BuildFactory)
 ////登录
-//+(instancetype)requestForLoginInWithNick:(NSString *)nick andPassWord:(NSString *)pwd;
++(instancetype)requestForLoginInWithNick:(NSString *)nick andPassWord:(NSString *)pwd;
 ////判断用户是否存在
 //+(instancetype)requestForCheckUserExistWith:(NSString *)phoneNum;
 ////修改密码发送验证信息

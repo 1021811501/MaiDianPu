@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : DGBaseViewController
-- (IBAction)action:(id)sender;
-
-
+#import "DGApiService.h"
+@interface ViewController : DGBaseViewController<DGApiServiceDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *actionBtn;
 @end
 

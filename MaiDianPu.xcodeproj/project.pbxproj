@@ -27,6 +27,7 @@
 		A12C00761FA02B5200021E25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12C00741FA02B5200021E25 /* LaunchScreen.storyboard */; };
 		A12C00811FA02B5200021E25 /* MaiDianPuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12C00801FA02B5200021E25 /* MaiDianPuTests.m */; };
 		A12C008C1FA02B5200021E25 /* MaiDianPuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12C008B1FA02B5200021E25 /* MaiDianPuUITests.m */; };
+		A17C4C5D1FB2EA3100C364DC /* UIViewController+DGUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A17C4C5C1FB2EA3100C364DC /* UIViewController+DGUtility.m */; };
 		A1942E911FA97A020045A9E6 /* JSActionSheetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1942E861FA97A020045A9E6 /* JSActionSheetTableViewCell.m */; };
 		A1942E921FA97A020045A9E6 /* JSActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1942E881FA97A020045A9E6 /* JSActionSheetView.m */; };
 		A1942E931FA97A020045A9E6 /* JSImagBrows.m in Sources */ = {isa = PBXBuildFile; fileRef = A1942E8A1FA97A020045A9E6 /* JSImagBrows.m */; };
@@ -186,6 +187,8 @@
 		A12C00871FA02B5200021E25 /* MaiDianPuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaiDianPuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12C008B1FA02B5200021E25 /* MaiDianPuUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaiDianPuUITests.m; sourceTree = "<group>"; };
 		A12C008D1FA02B5200021E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A17C4C5B1FB2EA3100C364DC /* UIViewController+DGUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DGUtility.h"; sourceTree = "<group>"; };
+		A17C4C5C1FB2EA3100C364DC /* UIViewController+DGUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DGUtility.m"; sourceTree = "<group>"; };
 		A1942E851FA97A020045A9E6 /* JSActionSheetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSActionSheetTableViewCell.h; sourceTree = "<group>"; };
 		A1942E861FA97A020045A9E6 /* JSActionSheetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSActionSheetTableViewCell.m; sourceTree = "<group>"; };
 		A1942E871FA97A020045A9E6 /* JSActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSActionSheetView.h; sourceTree = "<group>"; };
@@ -722,6 +725,8 @@
 				A1DF622E1FA0376B00A50B07 /* UITextField+GSUtility.m */,
 				A119A4071FA05FB000CBADF7 /* UIDevice+DGUtility.h */,
 				A119A4081FA05FB000CBADF7 /* UIDevice+DGUtility.m */,
+				A17C4C5B1FB2EA3100C364DC /* UIViewController+DGUtility.h */,
+				A17C4C5C1FB2EA3100C364DC /* UIViewController+DGUtility.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1309,7 +1314,7 @@
 				TargetAttributes = {
 					A12C005F1FA02B5200021E25 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 476H2HT534;
+						DevelopmentTeam = R5ZQ5245J9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1538,6 +1543,7 @@
 				A1DF63041FA0376F00A50B07 /* ThirdPartLogin.m in Sources */,
 				A1942E961FA97A020045A9E6 /* UIImage+JSUtility.m in Sources */,
 				A1AEF1591FA04A920046DE3A /* DGBaseViewController.m in Sources */,
+				A17C4C5D1FB2EA3100C364DC /* UIViewController+DGUtility.m in Sources */,
 				A1DF63281FA0376F00A50B07 /* CityPickerView.m in Sources */,
 				A1DF62E41FA0376F00A50B07 /* CGSizeUtility.m in Sources */,
 				A1942E911FA97A020045A9E6 /* JSActionSheetTableViewCell.m in Sources */,
@@ -1705,7 +1711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MaiDianPu/MaiDianPu.entitlements;
-				DEVELOPMENT_TEAM = 476H2HT534;
+				DEVELOPMENT_TEAM = R5ZQ5245J9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MaiDianPu/ThirdPart/umeng_sdk_ios/analytics5.4.0",
@@ -1733,6 +1739,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.digg.mdp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;
@@ -1743,7 +1750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MaiDianPu/MaiDianPu.entitlements;
-				DEVELOPMENT_TEAM = 476H2HT534;
+				DEVELOPMENT_TEAM = R5ZQ5245J9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MaiDianPu/ThirdPart/umeng_sdk_ios/analytics5.4.0",
@@ -1771,6 +1778,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.digg.mdp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Release;

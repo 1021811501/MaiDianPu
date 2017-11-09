@@ -16,12 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.hidesBottomBarWhenPushed = YES;
-//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
-//    {
-//        self.interactivePopGestureRecognizer.delegate = self;
-//        self.delegate = self;
-//    }
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        self.interactivePopGestureRecognizer.delegate = self;
+        self.delegate = self;
+    }
 }
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -30,8 +29,9 @@
 //解决自定返回按钮后返回手势不能用问题
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
-//        self.interactivePopGestureRecognizer.enabled = NO;
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
+        self.interactivePopGestureRecognizer.enabled = NO;
+    }
     if (self.viewControllers.count) {
         viewController.hidesBottomBarWhenPushed = YES;
     }
@@ -44,8 +44,15 @@
        didShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animate
 {
-//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
-//        self.interactivePopGestureRecognizer.enabled = YES;
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+        self.interactivePopGestureRecognizer.enabled = YES;
+}
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    if (self.childViewControllers.count <= 1) {
+        return NO;
+    }else{
+        return YES;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
